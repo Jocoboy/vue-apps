@@ -2,3 +2,20 @@
 
 # Vue-apps
 
+## Environment
+
+[Vue 3.x](https://cn.vuejs.org/guide/quick-start.html)
+
+[Vue Router 4.x](https://router.vuejs.org/zh/guide/)
+
+[Element Plus](https://element-plus.org/zh-CN/guide/quickstart.html)
+
+### Development Only
+
+[Vite 5.x](https://cn.vitejs.dev/guide/)
+
+[ESLint 9.x](https://eslint.nodejs.cn/docs/)
+
+[Prettier](https://www.prettier.cn/docs/)
+
+[Sass](https://www.sass.hk/guide/)
