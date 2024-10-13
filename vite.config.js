@@ -45,12 +45,13 @@ export default defineConfig(({ mode }) => {
       ],
     },
     // 引入scss全局变量
-    // css: {
-    //   preprocessorOptions: {
-    //     scss: {
-    //       additionalData: `@import "@/styles/color.scss";@import "@/styles/theme.scss";`,
-    //     },
-    //   },
-    // },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // additionalData: `@import "@/styles/color.scss";@import "@/styles/theme.scss";`,
+          api: "modern-compiler" // or 'modern'
+        },
+      },
+    },
   };
 });
