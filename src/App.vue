@@ -1,6 +1,7 @@
 <template>
-  <p>{{ num }}</p>
   <button @click="increment">按钮</button>
+  <h1>Bank Account Balance</h1>
+  <p>{{ $filters.currencyUSD(num) }}</p>
   <!-- 路由出口 -->
   <!-- 路由匹配到的组件将渲染在这里 -->
   <router-view />
