@@ -12,6 +12,10 @@
   <el-icon :size="100" color="red">
     <Edit />
   </el-icon>
+
+  <!-- 直接从 store 中访问 state -->
+  <div>Current Count: {{ counter.count }}</div>
+
   <!-- 路由出口 -->
   <!-- 路由匹配到的组件将渲染在这里 -->
   <router-view />
@@ -19,10 +23,9 @@
 
 
 <script setup>
-import { getCurrentInstance } from 'vue';
-import useCounter from './hooks/useCounter';
-import useSubmit from './hooks/useSubmit';
-
+import useCounter from '@/hooks/useCounter';
+import useSubmit from '@/hooks/useSubmit';
+// import { useCounterStore } from '@/stores/counter';
 
 const { num, doubles, increment } = useCounter();
 
@@ -33,6 +36,18 @@ async function handleClick() {
   submitOk('保存成功');
   submitFail('操作失败');
 }
+
+
+// const counter = useCounterStore()
+
+const { proxy } = getCurrentInstance();
+let counter = proxy.$store.counter.useCounterStore();
+
+counter.count++
+// 自动补全！ ✨
+counter.$patch({ count: counter.count + 1 })
+// 或使用 action 代替
+counter.increment()
 
 </script>
 

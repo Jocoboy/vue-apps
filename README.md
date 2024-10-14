@@ -10,6 +10,10 @@
 
 [Element Plus](https://element-plus.org/zh-CN/guide/quickstart.html)
 
+[Pinia](https://pinia.vuejs.org/zh/getting-started.html)
+
+[Pinia Persistedstate](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/)
+
 ### Development Only
 
 [Vite 5.x](https://cn.vitejs.dev/guide/)
