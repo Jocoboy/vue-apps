@@ -13,6 +13,9 @@
     <Edit />
   </el-icon>
 
+  <el-button @click="handleClick2">click api</el-button>
+  <h1>{{ res }}</h1>
+
   <!-- 直接从 store 中访问 state -->
   <div>Current Count: {{ counter.count }}</div>
 
@@ -37,10 +40,16 @@ async function handleClick() {
   submitFail('操作失败');
 }
 
+import { getCurrentInstance } from 'vue';
+const { proxy } = getCurrentInstance();
+let res = $ref(null);
+
+async function handleClick2() {
+  res = await proxy.$api.demo.time();
+}
 
 // const counter = useCounterStore()
 
-const { proxy } = getCurrentInstance();
 let counter = proxy.$store.counter.useCounterStore();
 
 counter.count++

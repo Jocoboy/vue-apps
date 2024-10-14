@@ -30,7 +30,7 @@ export default defineConfig(({ mode }) => {
         [env.VITE_APP_BASE_API]: {
           target: env.VITE_APP_SERVICE_API,
           changeOrigin: true,
-          ['^' + env.VITE_APP_BASE_API]: '' // 路径重写
+          rewrite: (path) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), ''),
         },
       },
     },
@@ -49,7 +49,7 @@ export default defineConfig(({ mode }) => {
       preprocessorOptions: {
         scss: {
           // additionalData: `@import "@/styles/color.scss";@import "@/styles/theme.scss";`,
-          api: "modern-compiler" // or 'modern'
+          api: 'modern-compiler', // or 'modern'
         },
       },
     },

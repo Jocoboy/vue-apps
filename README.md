@@ -14,6 +14,8 @@
 
 [Pinia Persistedstate](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/)
 
+[Axios](https://www.axios-http.cn/docs/intro)
+
 ### Development Only
 
 [Vite 5.x](https://cn.vitejs.dev/guide/)
