@@ -25,3 +25,26 @@
 [Prettier](https://www.prettier.cn/docs/)
 
 [Sass](https://www.sass.hk/guide/)
+
+## VSC Settings
+
+### Code Segment
+
+```json
+{
+  "vue3": {
+    "prefix": "vue3",
+    "body": [
+      "<template>",
+      "$1",
+      "</template>",
+      "<script setup>",
+      "import { getCurrentInstance } from 'vue';",
+      "const { proxy } = getCurrentInstance();",
+      "</script>",
+      "<style lang='scss'' scoped></style>"
+    ],
+    "description": "vue3 setup"
+  }
+}
+```
