@@ -19,6 +19,9 @@
   <!-- 直接从 store 中访问 state -->
   <div>Current Count: {{ counter.count }}</div>
 
+  <base-no-data />
+  <base-no-data>请先选择数据 </base-no-data>
+
   <!-- 路由出口 -->
   <!-- 路由匹配到的组件将渲染在这里 -->
   <router-view />
