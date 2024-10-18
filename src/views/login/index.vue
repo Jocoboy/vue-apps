@@ -1,6 +1,7 @@
 <template>
     <div class="bg-color-primary flex-center-center" style="height: 100%; width: 100%; background-color: #00aaff">
-        <div class="flex-c-center-center bg-color-white w-400 h-300 b-rd-10" style="height: 400px; width: 500px; border-radius: 10px">
+        <div class="flex-c-center-center bg-color-white w-400 h-300 b-rd-10"
+            style="height: 400px; width: 500px; border-radius: 10px">
             <h1 class="font-size-lg">SmallBoot</h1>
             <div class="m-t-20">
                 <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules">
@@ -27,6 +28,7 @@
 
 <script setup>
 import { getCurrentInstance } from 'vue';
+import axios from 'axios';
 
 const { proxy } = getCurrentInstance();
 const { login } = proxy.$store.user.useUserStore();
@@ -48,7 +50,7 @@ function validatePassword(rule, value, callback) {
 function handleLogin() {
     proxy.$refs.loginFormRef.validate((valid) => {
         if (valid) {
-            login(loginForm).then(() => {
+            axios.post('/web/api/auth/login', loginForm).then(() => {
                 let fullPath = proxy.$route.fullPath;
                 if (fullPath.startsWith('/login?redirect=')) {
                     let lastPath = fullPath.replace('/login?redirect=', '');
@@ -58,7 +60,10 @@ function handleLogin() {
                     // 跳转到首页
                     proxy.$router.push({ path: '/' });
                 }
-            });
+            })
+            // login(loginForm).then(() => {
+
+            // });
         }
     });
 }
