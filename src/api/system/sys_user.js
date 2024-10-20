@@ -30,13 +30,13 @@ export default {
   //     });
   //   },
   //   // 获取用户权限
-  //   getUserPerm() {
-  //     return request({
-  //       url: '/web/api/system/perm/getUserPerm',
-  //       method: 'get',
-  //       // params: { systemSource: 0 }
-  //     });
-  //   },
+  getUserPerm() {
+    return request({
+      url: '/web/api/system/perm/getUserPerm',
+      method: 'get',
+      // params: { systemSource: 0 }
+    });
+  },
   //   listPage(query, headers) {
   //     return request({
   //       url: BASE_API + '/listPage',

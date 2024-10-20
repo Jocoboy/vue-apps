@@ -50,20 +50,20 @@ function validatePassword(rule, value, callback) {
 function handleLogin() {
     proxy.$refs.loginFormRef.validate((valid) => {
         if (valid) {
-            axios.post('/web/api/auth/login', loginForm).then(() => {
+            // axios.post('/web/api/auth/login', loginForm).then(() => {
+
+            // })
+            login(loginForm).then(() => {
                 let fullPath = proxy.$route.fullPath;
                 if (fullPath.startsWith('/login?redirect=')) {
                     let lastPath = fullPath.replace('/login?redirect=', '');
-                    // 跳转到上次退出的页面
+                    跳转到上次退出的页面
                     proxy.$router.push({ path: lastPath });
                 } else {
-                    // 跳转到首页
+                    跳转到首页
                     proxy.$router.push({ path: '/' });
                 }
-            })
-            // login(loginForm).then(() => {
-
-            // });
+            });
         }
     });
 }
