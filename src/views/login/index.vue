@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-color-primary flex-center-center" style="height: 100%; width: 100%; background-color: #00aaff">
+    <div class="bg-color-primary flex-center-center" style="height: 100%; width: 100%; background-color: #222f3e">
         <div class="flex-c-center-center bg-color-white w-400 h-300 b-rd-10"
             style="height: 400px; width: 500px; border-radius: 10px">
-            <h1 class="font-size-lg">SmallBoot</h1>
+            <h1 class="font-size-lg">Welcome!</h1>
             <div class="m-t-20">
                 <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules">
                     <el-form-item prop="username">
@@ -17,11 +17,11 @@
                     <span>用户名: admin</span>
                     <span class="m-l-20"> 密码: 123456</span>
                 </div>
-                <el-button type="primary" class="m-t-10 w-full" @click="handleLogin">登 录</el-button>
+                <el-button type="info" class="m-t-10 w-full" @click="handleLogin">登 录</el-button>
             </div>
         </div>
         <div class="copyright">
-            <p>IF I WERE YOU</p>
+            <p>Jocoboy</p>
         </div>
     </div>
 </template>
@@ -50,20 +50,20 @@ function validatePassword(rule, value, callback) {
 function handleLogin() {
     proxy.$refs.loginFormRef.validate((valid) => {
         if (valid) {
-            // axios.post('/web/api/auth/login', loginForm).then(() => {
-
-            // })
-            login(loginForm).then(() => {
+            axios.post('/web/api/auth/login', loginForm).then(() => {
                 let fullPath = proxy.$route.fullPath;
                 if (fullPath.startsWith('/login?redirect=')) {
                     let lastPath = fullPath.replace('/login?redirect=', '');
-                    跳转到上次退出的页面
+                    // 跳转到上次退出的页面
                     proxy.$router.push({ path: lastPath });
                 } else {
-                    跳转到首页
+                    // 跳转到首页
                     proxy.$router.push({ path: '/' });
                 }
-            });
+            })
+            // login(loginForm).then(() => {
+
+            // });
         }
     });
 }
